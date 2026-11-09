@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Entscheidungsrad: Optionen eingeben, drehen und fair entscheiden – lokal im Browser, ohne Server.">
+<meta name="theme-color" content="#12141a">
 <title>Entscheidungsrad</title>
 <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABxzC7/ccwu/3HMLv8PxPH/D8Tx/w/E8f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHMLv9xzC7/ccwu/3HMLv9xzC7/D8Tx/w/E8f8PxPH/D8Tx/w/E8f8AAAAAAAAAAAAAAAAAAAAAAAAAAHHMLv9xzC7/ccwu/3HMLv9xzC7/ccwu/w/E8f8PxPH/D8Tx/w/E8f8PxPH/D8Tx/wAAAAAAAAAAAAAAAAAAAABxzC7/ccwu/3HMLv9xzC7/ccwu/3HMLv8PxPH/D8Tx/w/E8f8PxPH/D8Tx/w/E8f8AAAAAAAAAAAAAAADbmDT/25g0/9uYNP9xzC7/ccwu/3HMLv9xzC7/D8Tx/w/E8f8PxPH/D8Tx/yJ+5v8ifub/In7m/wAAAAAAAAAA25g0/9uYNP/bmDT/25g0/3HMLv9xzC7/ccwu/w/E8f8PxPH/D8Tx/yJ+5v8ifub/In7m/yJ+5v8AAAAAAAAAANuYNP/bmDT/25g0/9uYNP/bmDT/25g0/3HMLv8PxPH/In7m/yJ+5v8ifub/In7m/yJ+5v8ifub/AAAAAAAAAADbmDT/25g0/9uYNP/bmDT/25g0/9uYNP+2WZv/PEzn/yJ+5v8ifub/In7m/yJ+5v8ifub/In7m/wAAAAAAAAAA25g0/9uYNP/bmDT/25g0/7ZZm/+2WZv/tlmb/zxM5/88TOf/PEzn/yJ+5v8ifub/In7m/yJ+5v8AAAAAAAAAANuYNP/bmDT/25g0/7ZZm/+2WZv/tlmb/7ZZm/88TOf/PEzn/zxM5/88TOf/In7m/yJ+5v8ifub/AAAAAAAAAAAAAAAAtlmb/7ZZm/+2WZv/tlmb/7ZZm/+2WZv/PEzn/zxM5/88TOf/PEzn/zxM5/88TOf/AAAAAAAAAAAAAAAAAAAAALZZm/+2WZv/tlmb/7ZZm/+2WZv/tlmb/zxM5/88TOf/PEzn/zxM5/88TOf/PEzn/wAAAAAAAAAAAAAAAAAAAAAAAAAAtlmb/7ZZm/+2WZv/tlmb/7ZZm/88TOf/PEzn/zxM5/88TOf/PEzn/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtlmb/7ZZm/+2WZv/PEzn/zxM5/88TOf/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%3Cpath%20d%3D'M16%2016%20L16.00%202.00%20A14%2014%200%200%201%2028.12%209.00%20Z'%20fill%3D'%23e74c3c'%2F%3E%3Cpath%20d%3D'M16%2016%20L28.12%209.00%20A14%2014%200%200%201%2028.12%2023.00%20Z'%20fill%3D'%23e67e22'%2F%3E%3Cpath%20d%3D'M16%2016%20L28.12%2023.00%20A14%2014%200%200%201%2016.00%2030.00%20Z'%20fill%3D'%23f1c40f'%2F%3E%3Cpath%20d%3D'M16%2016%20L16.00%2030.00%20A14%2014%200%200%201%203.88%2023.00%20Z'%20fill%3D'%232ecc71'%2F%3E%3Cpath%20d%3D'M16%2016%20L3.88%2023.00%20A14%2014%200%200%201%203.88%209.00%20Z'%20fill%3D'%233498db'%2F%3E%3Cpath%20d%3D'M16%2016%20L3.88%209.00%20A14%2014%200%200%201%2016.00%202.00%20Z'%20fill%3D'%239b59b6'%2F%3E%3C%2Fsvg%3E">
@@ -375,9 +377,9 @@
       <button id="spin-btn">Drehen (Leertaste)</button>
       <button id="confetti-btn" title="Konfetti-Variante umschalten"><span class="confetti-ico"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20 L9 15 M5 11 a1.5 1.5 0 0 1 2-2 l7 7 a1.5 1.5 0 0 1-2 2 L5 11z"/><path d="M12 4 h2 v2 M18 6 h2 v2 M10 10 h2"/></g></svg></span><span id="confetti-label">Konfetti: Kurz</span></button>
     </div>
-    <div id="result">
+    <div id="result" aria-live="polite" aria-atomic="true">
       <div class="label" id="result-label">Deine Entscheidung</div>
-      <div class="decision" id="decision-text"></div>
+      <div class="decision" id="decision-text" tabindex="-1"></div>
       <div class="btns">
         <button id="confirm-btn">Festigen (Enter)</button>
         <button id="again-btn">Neu drehen</button>
@@ -532,10 +534,18 @@ function refreshCssVars() {
   cv.border = cs.getPropertyValue('--border').trim();
   cv.skip = cs.getPropertyValue('--skip').trim();
 }
+function prefersReducedMotion() {
+  return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+}
+function syncThemeColor() {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', theme === 'light' ? '#eef0f6' : '#12141a');
+}
 function applyTheme() {
   document.body.classList.toggle('light', theme === 'light');
   themeBtn.setAttribute('aria-pressed', String(theme === 'light'));
   refreshCssVars();
+  syncThemeColor();
 }
 
 function isLightTheme() { return document.body.classList.contains('light'); }
@@ -977,6 +987,7 @@ function confirmDecision() {
   decisionText.textContent = currentResult + ' ✓';
   currentResult = null;
   if (confettiMode === 'party') fireConfetti(2);
+  spinBtn.focus();
 }
 
 function spin() {
@@ -984,8 +995,6 @@ function spin() {
   const act = activeCount();
   if (act < 2) { showHint('Mindestens 2 aktive Optionen nötig.', 'error'); return; }
   clearResult();
-  decisionText.removeAttribute('role');
-  decisionText.removeAttribute('aria-live');
   document.body.classList.remove('landed');
   lastWin = -1;
   const total = options.length;
@@ -1002,11 +1011,20 @@ function spin() {
   const startRot = rot;
   const dur = 4200;
   const t0 = performance.now();
+  resultLabel.textContent = 'Entscheidung fällt …';
+  resultEl.classList.add('show');
+  if (prefersReducedMotion()) {
+    rot = startRot + totalDelta;
+    drawWheel();
+    lastWin = target;
+    document.body.classList.add('landed');
+    showResult(resultText);
+    updateSpinState();
+    return;
+  }
   animating = true;
   document.body.classList.add('animating');
   updateSpinState();
-  resultLabel.textContent = 'Entscheidung fällt …';
-  resultEl.classList.add('show');
   const slotActs = activeOptions();
   function frame(now) {
     const p = Math.min(1, (now - t0) / dur);
@@ -1088,7 +1106,9 @@ function resetOptions() {
 
 function renderConfettiBtn() {
   const party = confettiMode === 'party';
-  confettiLabel.textContent = party ? 'Konfetti: Party' : 'Konfetti: Kurz';
+  const label = party ? 'Konfetti: Party' : 'Konfetti: Kurz';
+  confettiLabel.textContent = label;
+  confettiBtn.setAttribute('aria-label', label + (prefersReducedMotion() ? ', reduzierte Bewegung aktiv' : ''));
   confettiBtn.classList.toggle('party', party);
 }
 
@@ -1174,6 +1194,7 @@ function resizeConfetti() {
 }
 
 function fireConfetti(times = 1) {
+  if (prefersReducedMotion()) return;
   for (let n = 0; n < times; n++) {
     for (let i = 0; i < 180; i++) {
       confettiParticles.push({
@@ -1322,6 +1343,7 @@ clearHistoryBtn.addEventListener('click', () => {
   saveHistory();
   renderHistory();
   showHint('Historie gelöscht – Rückgängig stellt sie wieder her.');
+  clearHistoryBtn.focus();
 });
 function findRestartState() {
   return koStart && koStart.length >= 2 ? koStart : null;
